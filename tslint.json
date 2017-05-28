@@ -1,0 +1,28 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint-config-airbnb"],
+  "rules": {
+    "import-name": false,
+    "no-var-keyword": true,
+    "typedef": [
+      true,
+      "call-signature"
+    ],
+    "readonly-interface": true,
+    "readonly-indexer": true,
+    "no-let": true,
+    "no-this": true,
+    "no-mixed-interface": true,
+    "no-arguments": true,
+    "no-label": true,
+    "import-containment": [
+      true,
+      {
+        "containmentPath": "path/to/libs",
+        "allowedExternalFileNames": ["index"],
+        "disallowedInternalFileNames": ["index"]
+      }
+    ]
+  },
+  "rulesDirectory": ["./node_modules/tslint-immutable/rules"]
+}
