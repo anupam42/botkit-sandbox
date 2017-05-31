@@ -33,9 +33,13 @@ declare namespace Slack {
   interface Message {
     type: string;
     subtype?: MessageSubtype;
-    text: string;
-    user: string;
     channel: string;
+    user: string;
+    text: string;
     ts: string;
+    source_team: string;
+    team: string;
+    event: MessageEvent;
+    match: RegExpMatchArray;
   }
 }
