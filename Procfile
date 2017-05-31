@@ -1,1 +1,1 @@
-worker: yarn start:heroku
+worker: npm run start:heroku
