@@ -10,11 +10,15 @@
     "start:heroku": "ts-node -F src/index.ts",
     "build": "tsc",
     "lint": "tslint -c tslint.json src/**/*.ts",
+    "jest": "jest",
     "test": "yarn lint && tsc --noEmit"
   },
   "devDependencies": {
+    "@types/jest": "^19.2.3",
     "@types/node": "^7.0.22",
     "@types/ramda": "^0.0.10",
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.5",
     "ts-node": "^3.0.4",
     "tslint": "^5.3.2",
     "tslint-config-airbnb": "^5.0.1",
@@ -25,5 +29,15 @@
     "botkit": "^0.5.4",
     "dotenv": "^4.0.0",
     "ramda": "^0.24.0"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
   }
 }
