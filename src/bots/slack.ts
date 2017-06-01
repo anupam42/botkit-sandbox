@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import * as Botkit from 'botkit';
 import * as env from '../env';
-import * as statics from '../controls/slack/static';
+import * as statics from '../controllers/slack';
 
 export const controller = Botkit.slackbot({});
 controller.spawn({ token: env.slackBotToken }).startRTM((err) => {
