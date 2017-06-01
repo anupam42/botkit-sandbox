@@ -6,7 +6,6 @@ export const ping
 = R.tap<Controller>(controller => controller.hears(
   /^ping$/, 
   ['direct_message', 'direct_mention', 'mention', 'ambient'],
-  (bot, message) => {
-    console.log(bot, message);
-  }),
+  (bot, message) => bot.reply(message, 'pong'),
+  ),
 );
