@@ -3,7 +3,7 @@ import * as Botkit from 'botkit';
 import * as env from '../env';
 import * as statics from '../controls/slack/static';
 
-const controller = Botkit.slackbot({});
+export const controller = Botkit.slackbot({});
 controller.spawn({ token: env.slackBotToken }).startRTM((err) => {
   if (err) throw new Error('Could not connect to Slack');
 });
