@@ -1,5 +1,5 @@
 import * as botkit from 'botkit';
-import { hears } from '../utils/functions';
+import { hears } from '../../utils/functions';
 
 export const ping = hears(
   'ping',
