@@ -1,9 +1,12 @@
-import * as botkit from 'botkit';
-import { hears } from '../../utils/functions';
+import { Controller } from 'botkit';
+import * as R from 'ramda';
 
-export const ping = hears(
-  'ping',
+export const ping
+: (_: Controller) => Controller
+= R.tap<Controller>(controller => controller.hears(
+  /^ping$/, 
   ['direct_message', 'direct_mention', 'mention', 'ambient'],
   (bot, message) => {
     console.log(bot, message);
-  });
+  }),
+);
