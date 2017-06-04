@@ -11,13 +11,9 @@
     "declaration": true,
     "noEmitOnError": true
   },
-  "include": [
-    "src",
-    "typings"
-  ],
   "exclude": [
     "dist",
-    "test",
+    "__tests__",
     "node_modules"
   ]
 }
