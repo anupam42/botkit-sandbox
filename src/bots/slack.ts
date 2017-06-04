@@ -1,13 +1,15 @@
 import * as R from 'ramda';
 import * as Botkit from 'botkit';
 import * as env from '../env';
-import * as statics from '../controllers/slack';
+import * as controllers from '../controllers/slack';
 
-export const controller = Botkit.slackbot({});
-controller.spawn({ token: env.slackBotToken }).startRTM((err) => {
-  if (err) throw new Error('Could not connect to Slack');
-});
+const controller = Botkit.slackbot({});
+controller
+  .spawn({ token: env.slackBotToken })
+  .startRTM((err) => {
+    if (err) throw new Error('Could not connect to Slack');
+  });
 
 R.pipe(
-  statics.ping,
+  controllers.ping,
 )(controller);
