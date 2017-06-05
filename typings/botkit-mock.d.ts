@@ -21,6 +21,7 @@ declare namespace BotkitMock {
     channel?: string;
     deep?: number;
     timeout?: number;
+    action?: string;
   }
 }
 

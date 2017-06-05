@@ -41,5 +41,6 @@ declare namespace Slack {
     team: string;
     event: MessageEvent;
     match: RegExpMatchArray;
+    action?: string;
   }
 }
