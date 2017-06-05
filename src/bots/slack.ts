@@ -12,4 +12,5 @@ controller
 
 R.pipe(
   controllers.ping,
+  controllers.pang,
 )(controller);
