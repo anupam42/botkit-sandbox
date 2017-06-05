@@ -5,27 +5,26 @@ declare module "botkit" {
 
   interface Bot {
     startRTM(callback?: (err: Error, bot: Bot, payload: {}) => void): this;
-    closeRTM(): void;
-    destroy(): void;
-    say(options : { text: string, channel: string }) : void;
-    reply(message : Message, text : string): void;
+    closeRTM(): never;
+    destroy(): never;
+    say(options : { text: string, channel: string }) : never;
+    reply(message : Message, text : string): never;
     startConversation(message: Message, cb: (err: Error, convo: Conversation) => void): never;
     createConversation(message: Message, cb: (err: Error, convo: Conversation) => void): never;
   }
 
-  // TODO
   interface Conversation {
-    
-  }
-
-  interface MessageCallback {
-    (bot: Bot, message: Message): void
+    messages: Message[];
+    addMessage(message: string | Message, thread_name?: string): never;
+    addQuestion(message: string | Message, cb: (response: Message, conv: Conversation, capture_options?: {}, thread_name?: string) => never): never;
+    say(message: string | Message): never;
+    ask(message: Message, cb: (response: Message, conv: Conversation) => never): never;
   }
 
   interface Controller {
     spawn(config: Slack.Config): Bot,
-    hears(patterns: string | string[] | RegExp, types: MessageEvents, cb: MessageCallback): void;
-    hears(patterns: string | string[] | RegExp, types: MessageEvents, middleware: Function, cb: MessageCallback): void;
+    hears(patterns: string | string[] | RegExp, types: MessageEvents, cb: (bot: Bot, message: Message) => never): never;
+    hears(patterns: string | string[] | RegExp, types: MessageEvents, middleware: Function, cb: (bot: Bot, message: Message) => never): never;
   }
 
   export function slackbot(config: {
